@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 const CoffeeData = [
   {
     id: 'C1',
@@ -16,7 +15,7 @@ const CoffeeData = [
     ],
     average_rating: 4.7,
     ratings_count: '6,879',
-    favourite: false,
+    favorite: false,
     type: 'Coffee',
     index: 0,
   },

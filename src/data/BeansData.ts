@@ -16,7 +16,7 @@ const BeansData = [
     ],
     average_rating: 4.7,
     ratings_count: '6,879',
-    favourite: false,
+    favorite: false,
     type: 'Bean',
     index: 0,
   },
