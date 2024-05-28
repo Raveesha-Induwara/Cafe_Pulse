@@ -242,6 +242,7 @@ const HomeScreen = ({navigation}: any) => {
           renderItem={({item}) => {
             return (
               <View className="pl-5">
+                {/* Click on Coffee --> navigate to the Details Screen */}
                 <TouchableOpacity
                   onPress={() => {
                     navigation.push('Details', {
@@ -250,6 +251,7 @@ const HomeScreen = ({navigation}: any) => {
                       type: item.type,
                     });
                   }}>
+                  {/* Call CoffeeCard Component */}
                   <CoffeeCard
                     id={item.id}
                     index={item.index}
@@ -284,6 +286,7 @@ const HomeScreen = ({navigation}: any) => {
           renderItem={({item}) => {
             return (
               <View className="pl-5">
+                {/* Click on Beans --> navigate to the Details Screen */}
                 <TouchableOpacity
                   onPress={() => {
                     navigation.push('Details', {
@@ -292,6 +295,7 @@ const HomeScreen = ({navigation}: any) => {
                       type: item.type,
                     });
                   }}>
+                  {/* Call CoffeeCard Component */}
                   <CoffeeCard
                     id={item.id}
                     index={item.index}

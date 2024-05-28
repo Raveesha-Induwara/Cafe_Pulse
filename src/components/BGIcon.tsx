@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
-import { BORDERRADIUS, SPACING } from '../theme/theme';
 import CustomIcon from './CustomIcon';
 
 interface BGIconProps {
@@ -12,7 +11,7 @@ interface BGIconProps {
 
 const BGIcon: React.FC<BGIconProps> = ({name, color, size, BGColor}) => {
   return (
-    <View style={[styles.IconBG, {backgroundColor: BGColor}]}>
+    <View className="h-[30] w-[30] rounded-lg items-center justify-center" style={{backgroundColor: BGColor}}>
       <CustomIcon
         name={name}
         color={color}
@@ -21,15 +20,5 @@ const BGIcon: React.FC<BGIconProps> = ({name, color, size, BGColor}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-    IconBG: {
-        height: SPACING.space_30,
-        width: SPACING.space_30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: BORDERRADIUS.radius_8,
-    },
-});
 
 export default BGIcon;

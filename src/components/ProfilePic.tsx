@@ -1,30 +1,15 @@
 import React from 'react';
-import { StyleSheet, Image, View } from 'react-native';
-import { COLORS, SPACING } from '../theme/theme';
+import {Image, View} from 'react-native';
 
 const ProfilePic = () => {
   return (
-    <View style={styles.ImageContainer}>
-      <Image source={require('../assets/app_images/avatar.png')} style={styles.Image} />
+    <View className="w-10 h-10 rounded-xl border-2 border-secondaryDarkGreyHex justify-center items-center overflow-hidden">
+      <Image
+        source={require('../assets/app_images/avatar.png')}
+        className="w-9 h-9"
+      />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  ImageContainer: {
-    height: SPACING.space_36,
-    width: SPACING.space_36,
-    borderRadius: SPACING.space_12,
-    borderWidth: 2,
-    borderColor: COLORS.secondaryDarkGreyHex,
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-  Image: {
-    height: SPACING.space_36,
-    width: SPACING.space_36,
-  },
-});
 
 export default ProfilePic;

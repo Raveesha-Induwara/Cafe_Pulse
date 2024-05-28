@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabNavigator from './src/navigators/TabNavigator';
-import DetailsScreen from './src/screens/DetailsScreen';
+import {DetailsScreen} from './src/screens/DetailsScreen';
 import PaymentScreen from './src/screens/PaymentScreen';
 
 const stack = createNativeStackNavigator();
