@@ -36,22 +36,23 @@ export const DetailsScreen = ({navigation, route}: any) => {
     favorite ? deleteFromFavoriteList(type, id) : addToFavoriteList(type, id);
   };
 
+  // Add to cart handler function
   const addToCardHandler = ({
     id,
     index,
     name,
     roasted,
-    imagelink_square,
+    imageLink_square,
     special_ingredient,
     type,
-    prices,
+    price,
   }: any) => {
     addToCart({
       id,
       index,
       name,
       roasted,
-      imagelink_square,
+      imageLink_square,
       special_ingredient,
       type,
       prices: [{...price, quantity: 1}],
@@ -64,11 +65,7 @@ export const DetailsScreen = ({navigation, route}: any) => {
     <View className="flex-1 bg-primaryBlackHex">
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
 
-      <ScrollView
-        className="flex-grow"
-        showsVerticalScrollIndicator={false}
-        //contentContainerStyle = {styles.ScrollViewFlex}
-      >
+      <ScrollView className="flex-grow" showsVerticalScrollIndicator={false}>
         <ImageBackgroundInfo
           EnableBackHandler={true}
           imageLink_portrait={ItemOfIndex.imagelink_portrait}
@@ -147,10 +144,10 @@ export const DetailsScreen = ({navigation, route}: any) => {
               index: ItemOfIndex.index,
               name: ItemOfIndex.name,
               roasted: ItemOfIndex.roasted,
-              imagelink_square: ItemOfIndex.imagelink_square,
+              imageLink_square: ItemOfIndex.imagelink_square,
               special_ingredient: ItemOfIndex.special_ingredient,
               type: ItemOfIndex.type,
-              prices: price,
+              price: price,
             });
           }}
         />
