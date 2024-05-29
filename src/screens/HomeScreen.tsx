@@ -57,7 +57,7 @@ const HomeScreen = ({navigation}: any) => {
   const addToCart = useStore((state: any) => state.addToCart);
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
 
-  const [categories, setCategories] = useState(
+  const [categories] = useState(
     getCategoriesFromData(CoffeeList),
   );
   const [searchText, setSearchText] = useState('');
