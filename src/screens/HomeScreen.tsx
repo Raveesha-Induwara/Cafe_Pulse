@@ -98,25 +98,26 @@ const HomeScreen = ({navigation}: any) => {
     setSearchText('');
   };
 
-  const addToCardHandler = ({
+  // Add to cart handler function
+  const CoffeeCardAddToCart = ({
     id,
     index,
     name,
     roasted,
-    imagelink_square,
+    imageLink_square,
     special_ingredient,
     type,
-    price,
+    prices,
   }: any) => {
     addToCart({
       id,
       index,
       name,
       roasted,
-      imagelink_square,
+      imageLink_square,
       special_ingredient,
       type,
-      prices: [{...price, quantity: 1}],
+      prices,
     });
     calculateCartPrice();
     ToastAndroid.showWithGravity(
@@ -261,8 +262,8 @@ const HomeScreen = ({navigation}: any) => {
                     name={item.name}
                     special_ingredient={item.special_ingredient}
                     average_rating={item.average_rating}
-                    price={item.prices[2].price}
-                    buttonPressHandler={addToCardHandler}
+                    price={item.prices[2]}
+                    buttonPressHandler={CoffeeCardAddToCart}
                   />
                 </TouchableOpacity>
               </View>
@@ -305,8 +306,8 @@ const HomeScreen = ({navigation}: any) => {
                     name={item.name}
                     special_ingredient={item.special_ingredient}
                     average_rating={item.average_rating}
-                    price={item.prices[2].price}
-                    buttonPressHandler={addToCardHandler}
+                    price={item.prices[2]}
+                    buttonPressHandler={CoffeeCardAddToCart}
                   />
                 </TouchableOpacity>
               </View>

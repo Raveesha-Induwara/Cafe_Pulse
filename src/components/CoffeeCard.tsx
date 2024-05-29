@@ -62,21 +62,19 @@ export const CoffeeCard: React.FC<CoffeeCardProps> = ({
 
       {/* Coffee Title */}
       <Text className="text-base text-primaryWhiteHex font-poppins_medium">
-        {' '}
-        {name}{' '}
+        {name}
       </Text>
 
       {/* Ingredients Text */}
       <Text className="text-xs text-primaryWhiteHex font-poppins_light">
-        {' '}
-        {special_ingredient}{' '}
+        {special_ingredient}
       </Text>
 
       {/* Bottom Section */}
       <View className="flex-row mt-4 justify-between items-center">
         {/* Price */}
         <Text className="text-lg text-primaryOrangeHex font-poppins_semibold">
-          $ <Text className="text-primaryWhiteHex">{price}</Text>
+          $ <Text className="text-primaryWhiteHex">{price.price}</Text>
         </Text>
 
         {/* Add to Cart Icon */}
@@ -90,7 +88,7 @@ export const CoffeeCard: React.FC<CoffeeCardProps> = ({
               imageLink_square,
               name,
               special_ingredient,
-              prices: [{...price, quantity: 1}],
+              prices: [{...price, quantity: 1}], // Add the quantity of the item
             });
           }}>
           {/* Icon */}
