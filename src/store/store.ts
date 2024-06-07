@@ -214,9 +214,8 @@ export const useStore = create(
           produce(state => {
             // calculate the total price of the current cart list
             let temp = state.CartList.reduce(
-              (accumulator: number, currentValue: any) => {
-                accumulator + parseFloat(currentValue.ItemPrice);
-              },
+              (accumulator: number, currentValue: any) =>
+                accumulator + parseFloat(currentValue.ItemPrice),
               0,
             );
 
