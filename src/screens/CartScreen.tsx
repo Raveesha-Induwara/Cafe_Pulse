@@ -50,7 +50,7 @@ export const CartScreen = ({navigation}: any) => {
   // console.log('CartList: ', CartList);
 
   const buttonPressHandler = () => {
-    navigation.push('Payment');
+    navigation.push('Payment', {amount: CartPrice});
   };
 
   return (
