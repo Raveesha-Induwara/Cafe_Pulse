@@ -31,6 +31,6 @@ To get an app-release apk and Install app, [Click here](https://drive.google.com
 
 ## 📧 Contact
 
-- [LinkedIn](www.linkedin.com/in/raveesha-induwara)
+- [LinkedIn](https://www.linkedin.com/in/raveesha-induwara/)
 - raveeshe.abeysinghe@gmail.com
 
