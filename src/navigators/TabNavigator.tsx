@@ -4,9 +4,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {COLORS} from '../theme/theme';
 import {BlurView} from '@react-native-community/blur';
 import HomeScreen from '../screens/HomeScreen';
-import FavoriteScreen from '../screens/FavoriteScreen';
-import CartScreen from '../screens/CartScreen';
-import OrderHistoryScreen from '../screens/OrderHistoryScreen';
+import {FavoriteScreen} from '../screens/FavoriteScreen';
+import {CartScreen} from '../screens/CartScreen';
+import {OrderHistoryScreen} from '../screens/OrderHistoryScreen';
 import CustomIcon from '../components/CustomIcon';
 
 const Tab = createBottomTabNavigator();
@@ -15,12 +15,13 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{
+      screenOptions={({route}) => ({
         tabBarHideOnKeyboard: true,
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarActiveTintColor: COLORS.primaryLightGreyHex,
+        tabBarActiveTintColor: COLORS.primaryOrangeHex,
         tabBarStyle: styles.tabBarStyle,
+        // eslint-disable-next-line react/no-unstable-nested-components
         tabBarBackground: () => (
           <BlurView
             overlayColor=""
@@ -28,67 +29,29 @@ const TabNavigator = () => {
             style={styles.BlurViewStyle}
           />
         ),
-      }}>
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <CustomIcon
-              name="home"
-              size={25}
-              color={
-                focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
-              }
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Cart"
-        component={CartScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <CustomIcon
-              name="cart"
-              size={25}
-              color={
-                focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
-              }
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Favorite"
-        component={FavoriteScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <CustomIcon
-              name="like"
-              size={25}
-              color={
-                focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
-              }
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="History"
-        component={OrderHistoryScreen}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <CustomIcon
-              name="bell"
-              size={25}
-              color={
-                focused ? COLORS.primaryOrangeHex : COLORS.primaryLightGreyHex
-              }
-            />
-          ),
-        }}
-      />
+
+        // eslint-disable-next-line react/no-unstable-nested-components
+        tabBarIcon: ({color}) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = 'home';
+          } else if (route.name === 'Cart') {
+            iconName = 'cart';
+          } else if (route.name === 'Favorite') {
+            iconName = 'like';
+          } else if (route.name === 'History') {
+            iconName = 'bell';
+          }
+          return (
+            <CustomIcon name={iconName ?? 'home'} size={25} color={color} />
+          );
+        },
+      })}>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Cart" component={CartScreen} />
+      <Tab.Screen name="Favorite" component={FavoriteScreen} />
+      <Tab.Screen name="History" component={OrderHistoryScreen} />
     </Tab.Navigator>
   );
 };
