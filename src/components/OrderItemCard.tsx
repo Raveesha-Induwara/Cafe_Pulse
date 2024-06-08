@@ -60,35 +60,37 @@ export const OrderItemCard: React.FC<OrderItemCardProps> = ({
           key={index.toString()}
           className="flex-1 flex-row mt-2 items-center justify-between">
           {/* Price and Size Card Container */}
-          <View className="flex-row">
-            {/* Size of the item */}
-            <View className="h-[40] w-[80] bg-primaryBlackHex rounded-l-lg border-r border-primaryGreyHex justify-center items-center">
-              <Text
-                className={classNames(
-                  'font-poppins_medium text-lg text-primaryWhiteHex',
-                  {
-                    'text-sm': type === 'Bean',
-                  },
-                )}>
-                {data.size}
-              </Text>
+          <View className="flex-row flex-grow items-center space-x-7">
+            <View className="flex-row">
+              {/* Size of the item */}
+              <View className="h-[40] w-[80] bg-primaryBlackHex rounded-l-lg border-r border-primaryGreyHex justify-center items-center">
+                <Text
+                  className={classNames(
+                    'font-poppins_medium text-lg text-primaryWhiteHex',
+                    {
+                      'text-sm': type === 'Bean',
+                    },
+                  )}>
+                  {data.size}
+                </Text>
+              </View>
+
+              {/* Price of one item */}
+              <View className="h-[40] w-[100] bg-primaryBlackHex rounded-r-lg justify-center items-center">
+                <Text className="font-poppins_semibold text-lg text-primaryOrangeHex">
+                  {data.currency}{' '}
+                  <Text className="text-primaryWhiteHex">{data.price}</Text>
+                </Text>
+              </View>
             </View>
 
-            {/* Price of one item */}
-            <View className="h-[40] w-[100] bg-primaryBlackHex rounded-r-lg justify-center items-center">
-              <Text className="font-poppins_semibold text-lg text-primaryOrangeHex">
-                {data.currency}{' '}
-                <Text className="text-primaryWhiteHex">{data.price}</Text>
+            {/* Quantity */}
+            <View>
+              <Text className="font-poppins_semibold text-base text-primaryWhiteHex">
+                <Text className="text-primaryOrangeHex">X </Text>
+                {data.quantity}
               </Text>
             </View>
-          </View>
-
-          {/* Quantity */}
-          <View className="items-center">
-            <Text className="font-poppins_semibold text-base text-primaryWhiteHex">
-              <Text className="text-primaryOrangeHex">X </Text>
-              {data.quantity}
-            </Text>
           </View>
 
           {/* Total price */}

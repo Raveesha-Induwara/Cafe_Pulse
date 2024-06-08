@@ -225,19 +225,14 @@ export const useStore = create(
             // add the current cart list to the OrderHistoryList
             if (state.OrderHistoryList.length > 0) {
               state.OrderHistoryList.unshift({
-                OrderDate:
-                  new Date().toLocaleString() +
-                  ' ' +
-                  new Date().toLocaleTimeString(),
+                OrderDate: new Date().toDateString(),
                 CartList: state.CartList,
                 CartListPrice: currentCartListTotalPrice,
               });
             } else {
               state.OrderHistoryList.push({
                 OrderDate:
-                  new Date().toLocaleString() +
-                  ' ' +
-                  new Date().toLocaleTimeString(),
+                  new Date().toDateString(),
                 CartList: state.CartList,
                 CartListPrice: currentCartListTotalPrice,
               });
