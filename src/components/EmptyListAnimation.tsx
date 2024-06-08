@@ -8,7 +8,7 @@ interface EmptyListAnimationProps {
 
 const EmptyListAnimation: React.FC<EmptyListAnimationProps> = ({title}) => {
   return (
-    <View className="flex-1 justify-center">
+    <View>
       <LottieView
         style={styles.LottieStyle}
         source={require('../lottie/coffeecup.json')}
@@ -26,6 +26,7 @@ export default EmptyListAnimation;
 
 const styles = StyleSheet.create({
   LottieStyle: {
-    height: 400,
+    marginTop: 100,
+    height: 300,
   },
 });
