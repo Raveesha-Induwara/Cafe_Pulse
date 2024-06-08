@@ -1,4 +1,4 @@
-# Cafe Pluse
+# Cafe Pulse
 
 Welcome to the Cafe Pulse App repository! This React Native application allows users to browse various coffee options, search for specific coffees, view detailed information, favorite items, and place orders. The app is designed to provide an enjoyable and efficient experience for coffee enthusiasts.
 
