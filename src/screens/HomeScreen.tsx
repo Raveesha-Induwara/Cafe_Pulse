@@ -18,6 +18,7 @@ import {HeaderBar} from '../components/HeaderBar';
 import CustomIcon from '../components/CustomIcon';
 import {CoffeeCard} from '../components/CoffeeCard';
 import classNames from 'classnames';
+import {useNav} from '../navigators/RootNavigation';
 
 // Get screen dimension
 const screenWidth = Dimensions.get('window').width;
@@ -51,15 +52,14 @@ const getCoffeeList = (category: string, data: any) => {
   }
 };
 
-const HomeScreen = ({navigation}: any) => {
+const HomeScreen = () => {
+  const navigation = useNav();
   const CoffeeList = useStore((state: any) => state.CoffeeList);
   const BeansList = useStore((state: any) => state.BeansList);
   const addToCart = useStore((state: any) => state.addToCart);
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
 
-  const [categories] = useState(
-    getCategoriesFromData(CoffeeList),
-  );
+  const [categories] = useState(getCategoriesFromData(CoffeeList));
   const [searchText, setSearchText] = useState('');
   const [categoryIndex, setCategoryIndex] = useState({
     index: 1,
@@ -120,6 +120,8 @@ const HomeScreen = ({navigation}: any) => {
       prices,
     });
     calculateCartPrice();
+
+    // Show Toast Message
     ToastAndroid.showWithGravity(
       `${name} is Added to Cart`,
       ToastAndroid.SHORT,

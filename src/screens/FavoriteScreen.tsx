@@ -1,4 +1,3 @@
-import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {
   Dimensions,
@@ -6,12 +5,14 @@ import {
   StatusBar,
   TouchableOpacity,
   View,
-} from 'react-native';
+  } from 'react-native';
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import {HeaderBar} from '../components/HeaderBar';
 import {COLORS} from '../theme/theme';
 import {useStore} from '../store/store';
 import {FavoritesItemCard} from '../components/FavoritesItemCard';
+import { useNav } from '../navigators/RootNavigation';
 
 // Screen width and height
 const screenWidth = Dimensions.get('window').width;
@@ -21,7 +22,8 @@ const RPW = (percentage: number) => {
   return (percentage / 100) * screenWidth;
 };
 
-export const FavoriteScreen = ({navigation}: any) => {
+export const FavoriteScreen = () => {
+  const navigation = useNav();
   const FavoriteList = useStore((state: any) => state.FavoriteList);
   const tabBarHeight = useBottomTabBarHeight();
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);

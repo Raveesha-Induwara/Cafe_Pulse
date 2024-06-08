@@ -15,6 +15,7 @@ import {HeaderBar} from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import {PopUpAnimation} from '../components/PopUpAnimation';
 import {OrderHistoryCard} from '../components/OrderHistoryCard';
+import { useNav } from '../navigators/RootNavigation';
 
 // Screen width and height
 const screenWidth = Dimensions.get('window').width;
@@ -24,7 +25,8 @@ const RPW = (percentage: number) => {
   return (percentage / 100) * screenWidth;
 };
 
-export const OrderHistoryScreen = ({navigation}: any) => {
+export const OrderHistoryScreen = () => {
+  const navigation = useNav();
   const OrderHistoryList = useStore((state: any) => state.OrderHistoryList);
   const [showAnimation, setShowAnimation] = useState<boolean>(false);
   const tabBarHeight = useBottomTabBarHeight();

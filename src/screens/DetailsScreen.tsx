@@ -12,8 +12,10 @@ import {useStore} from '../store/store';
 import {ImageBackgroundInfo} from '../components/ImageBackgroundInfo';
 import {PaymentFooter} from '../components/PaymentFooter';
 import classNames from 'classnames';
+import { useNav } from '../navigators/RootNavigation';
 
-export const DetailsScreen = ({navigation, route}: any) => {
+export const DetailsScreen = ({route}: any) => {
+  const navigation = useNav();
   const addToFavoriteList = useStore((state: any) => state.addToFavoriteList);
   const deleteFromFavoriteList = useStore(
     (state: any) => state.deleteFromFavoriteList,

@@ -13,6 +13,7 @@ import {HeaderBar} from '../components/HeaderBar';
 import EmptyListAnimation from '../components/EmptyListAnimation';
 import {PaymentFooter} from '../components/PaymentFooter';
 import CartItem from '../components/CartItem';
+import { useNav } from '../navigators/RootNavigation';
 
 // Screen width and height
 const screenWidth = Dimensions.get('window').width;
@@ -26,7 +27,8 @@ const RPW = (percentage: number) => {
 //   return (percentage / 100) * screenHeight;
 // };
 
-export const CartScreen = ({navigation}: any) => {
+export const CartScreen = () => {
+  const navigation = useNav();
   const CartList = useStore((state: any) => state.CartList);
   const CartPrice = useStore((state: any) => state.CartPrice);
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);

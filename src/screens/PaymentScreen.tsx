@@ -17,6 +17,7 @@ import CustomIcon from '../components/CustomIcon';
 import classNames from 'classnames';
 import {useStore} from '../store/store';
 import {PopUpAnimation} from '../components/PopUpAnimation';
+import { useNav } from '../navigators/RootNavigation';
 
 const paymentList = [
   {
@@ -49,7 +50,8 @@ const RPW = (percentage: number) => {
   return (percentage / 100) * screenWidth;
 };
 
-export const PaymentScreen = ({navigation, route}: any) => {
+export const PaymentScreen = ({route}: any) => {
+  const navigation = useNav();
   const [paymentMode, setPaymentMode] = useState('Credit Card');
   const [showAnimation, setShowAnimation] = useState<boolean>(false);
   const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
