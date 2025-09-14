@@ -1,0 +1,19 @@
+name: Android CI/CD
+
+on: [push, pull_request]
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v5
+
+        - name: Welcome message
+          run: echo "My first GitHub Action workflow"
+
+        - name: List files
+          run: ls
+
+        - name: Read file
+          run: cat README.md
