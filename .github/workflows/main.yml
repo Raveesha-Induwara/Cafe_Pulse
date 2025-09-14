@@ -9,11 +9,8 @@ jobs:
         - name: Checkout Repo
           uses: actions/checkout@v5
 
-        - name: Welcome message
-          run: echo "My first GitHub Action workflow"
-
-        - name: List files
-          run: ls
-
-        - name: Read file
-          run: cat README.md
+        - name: List and Read files
+          run: |
+            echo "My first GitHub Action workflow"
+            ls
+            cat README.md
